@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Upload CSV Files</title>
+  </head>
+  <body>
+    <h1>Upload CSV Files</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <label for="client">Select Client:</label>
+        <select name="client" id="client">
+            {% for client in clients %}
+                <option value="{{ client.id }}">{{ client.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="new_client">Or Create New Client:</label>
+        <input type="text" name="new_client" id="new_client">
+        <br>
+        <label for="asset_list">Asset List:</label>
+        <input type="file" name="asset_list" id="asset_list"><br>
+        <label for="scan_report">Scan Report:</label>
+        <input type="file" name="scan_report" id="scan_report"><br>
+        <label for="ticket_results">Ticket Results:</label>
+        <input type="file" name="ticket_results" id="ticket_results"><br>
+        <input type="submit" value="Upload">
+    </form>
+  </body>
+</html>
